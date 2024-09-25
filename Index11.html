@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media DropDown</title>
+    <link rel="stylesheet" href="Style24.css">
+
+</head>
+<body>
+    <div class="hero">
+
+        <div class="selector">
+            <div id="SelectField">
+                <p id="selectText">Select Social Media</p>
+                <img src="Dropdown.png">
+            </div>
+            <ul id="list"class="hide">
+                <li class="options">
+                    <img src="Facbook_icon.jpeg">
+                    <p>Facbook</p>
+                </li>
+
+                <li class="options">
+                    <img src="Instagram_icon.jpeg">
+                    <p>Instagram</p>
+                </li>
+
+
+                <li class="options">
+                    <img src="youtube_icon.png">
+                    <p>YouTube</p>
+                </li>
+
+                <li class="options">
+                    <img src="whats'app_icon.jpeg">
+                    <p>What's App</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+            
+            
+    var selectField = document.getElementById("SelectField");
+    var selectText = document.getElementById("selectText");
+    var list = document.getElementById("list"); // Ensure you get the list element
+    var options = document.getElementsByClassName("options");
+
+    selectField.onclick = function() {
+        list.style.display = list.style.display === "block" ? "none" : "block"; // Toggle visibility
+    };
+
+    for (let option of options) { // Use 'let' to correctly scope 'option'
+        option.onclick = function() {
+            selectText.innerHTML = this.textContent; // Update the select text
+            list.style.display = "none"; // Hide the dropdown after selection
+        };
+    }
+
+    // Optional: Close the dropdown when clicking outside
+    window.onclick = function(event) {
+        if (!selectField.contains(event.target)) {
+            list.style.display = "none";
+        }
+    };
+
+
+    </script>
+</body>
+</html>
